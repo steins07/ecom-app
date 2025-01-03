@@ -1,4 +1,5 @@
-import imageUrl  from "@/lib/imageUrl";
+import { Separator } from "@/components/ui/separator";
+import imageUrl from "@/lib/imageUrl";
 import { getProductBySlug } from "@/sanity/lib/products/getProductBySlug";
 import { SanityImageObject } from "@sanity/image-url/lib/types/types";
 import { PortableText, PortableTextComponents } from "next-sanity";
@@ -8,7 +9,7 @@ import { notFound } from "next/navigation";
 async function ProductPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const product = await getProductBySlug(slug);
-console.log(product)
+  console.log(product)
   if (!product) {
     return notFound();
   }
@@ -16,8 +17,8 @@ console.log(product)
   const isOutOfStock = product.stock != null && product.stock <= 0;
   const myPortableTextComponents: PortableTextComponents = {
     types: {
-      image: ({ value}: { value: SanityImageObject; }) => (
-        
+      image: ({ value }: { value: SanityImageObject; }) => (
+
         <div >
           <Image
             src={imageUrl(value).url()}
@@ -36,15 +37,15 @@ console.log(product)
         <div
           className={`relative aspect-square overflow-hidden rounded-lg shadow-lg ${isOutOfStock ? "opacity-50" : ""}`}
         >
-         {product.image && (
-                    <Image
-                        className="object-contain transition-transform duration-300 group-hover:scale-105"
-                        alt={product.name || "Product Image"}
-                        src={imageUrl(product.image).url()}
-                        fill
-                        sizes="{max-width:768px} 100vw, (max-width:1200px) 50vw, 33vw"
-                    />
-                )}
+          {product.image && (
+            <Image
+              className="object-contain transition-transform duration-300 group-hover:scale-105"
+              alt={product.name || "Product Image"}
+              src={imageUrl(product.image).url()}
+              fill
+              sizes="{max-width:768px} 100vw, (max-width:1200px) 50vw, 33vw"
+            />
+          )}
           {isOutOfStock && (
             <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50">
               <span className="text-white text-lg font-bold">Out of Stock</span>
@@ -58,6 +59,8 @@ console.log(product)
               ${product.price?.toFixed(2)}
             </div>
             <div className="prose max-w-none mb-6">
+              <p className="text-2xl font-bold mb-1">Description</p>
+              <Separator />
               {Array.isArray(product.description) && (
                 <PortableText value={product.description} components={myPortableTextComponents} />
               )}
