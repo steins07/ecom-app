@@ -1,3 +1,4 @@
+import BlackFridayBanner from "@/components/BlackFridayBanner";
 import ProductsView from "@/components/ProductsView";
 import { getAllCategories } from "@/sanity/lib/products/getAllCategories";
 import { getAllProducts } from "@/sanity/lib/products/getAllProducts";
@@ -12,6 +13,8 @@ export default async function Home() {
   return (
     <div className="">
       <h1>Home</h1>
+      {/* banners section */}
+      <BlackFridayBanner />
       {/* render products section */}
       <div>
         <ProductsView products={products} categories={categories}/>
