@@ -1,3 +1,4 @@
+import AddToBasketButton from "@/components/AddToBasketButton ";
 import { Separator } from "@/components/ui/separator";
 import imageUrl from "@/lib/imageUrl";
 import { getProductBySlug } from "@/sanity/lib/products/getProductBySlug";
@@ -9,10 +10,10 @@ import { notFound } from "next/navigation";
 async function ProductPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const product = await getProductBySlug(slug);
-  console.log(product)
   if (!product) {
     return notFound();
   }
+console.log(product.stock)
 
   const isOutOfStock = product.stock != null && product.stock <= 0;
   const myPortableTextComponents: PortableTextComponents = {
@@ -65,6 +66,9 @@ async function ProductPage({ params }: { params: Promise<{ slug: string }> }) {
                 <PortableText value={product.description} components={myPortableTextComponents} />
               )}
             </div>
+          </div>
+          <div className="mt-6">
+            <AddToBasketButton product={product} disabled={isOutOfStock} />
           </div>
         </div>
       </div>

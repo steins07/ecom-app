@@ -11,13 +11,11 @@ export default async function Home() {
   //   crypto.randomUUID().slice(0, 5)+ ` >>> Rendered the home page cache with ${products.length} products and ${categories.length} categories`
   // );
   return (
-    <div className="">
-      <h1>Home</h1>
-      {/* banners section */}
+    <div>
       <BlackFridayBanner />
-      {/* render products section */}
-      <div>
-        <ProductsView products={products} categories={categories}/>
+      {/* render products*/}
+      <div className="flex flex-col items-center justify-top min-h-screen bg-gray-100 p-4">
+        <ProductsView products={products} categories={categories} />
       </div>
     </div>
   );
