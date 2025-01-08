@@ -11,9 +11,8 @@ interface IAddToBasketButtonProps {
 }
 
 function AddToBasketButton({ product, disabled }: IAddToBasketButtonProps) {
-  const { addItem, removeItem, getItemCount ,items} = useBasketStore();
+  const { addItem, removeItem, getItemCount } = useBasketStore();
   const itemCount = getItemCount(product._id);
-  console.log(disabled)
 
   const [isClient, setIsClient] = useState(false);
 
@@ -22,7 +21,6 @@ function AddToBasketButton({ product, disabled }: IAddToBasketButtonProps) {
   if (!isClient) {
     return null;
   }
-  console.log(items[0].quantity)
 
   return (
     <div className=" flex items-center justify-center space-x-2">
@@ -53,7 +51,9 @@ function AddToBasketButton({ product, disabled }: IAddToBasketButtonProps) {
           disabled
             ? "bg-gray-400 cursor-not-allowed"
             : "bg-blue-500 hover:bg-blue-600"
-        }`}
+        }`
+      }
+      disabled={disabled}
       >
         <Plus/>
         {/* <span className="text-xl font-bold text-white">+</span> */}
