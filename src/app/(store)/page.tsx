@@ -11,7 +11,9 @@ export default async function Home() {
   //   crypto.randomUUID().slice(0, 5)+ ` >>> Rendered the home page cache with ${products.length} products and ${categories.length} categories`
   // );
   return (
-    <div>
+    <div 
+    className="p-2"
+    >
       <BlackFridayBanner />
       {/* render products*/}
       <div className="flex flex-col items-center justify-top min-h-screen bg-gray-100 p-4">
