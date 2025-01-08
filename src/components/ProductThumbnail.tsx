@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { Product } from "../../sanity.types";
 import Image from "next/image";
-import imageUrl  from "@/lib/imageUrl";
+import imageUrl from "@/lib/imageUrl";
 
 function ProductThumbnail({ product }: { product: Product }) {
   const isOutOfStock = product.stock != null && product.stock <= 0;
@@ -11,13 +11,15 @@ function ProductThumbnail({ product }: { product: Product }) {
       className={`group flex flex-col bg-white rounded-lg border border-gray-200
   shadow-sm hover:shadow-md transition-all duration-200 overflow-hidden ${isOutOfStock ? "opacity-50" : ""}`}
     >
-      <div className="relative aspect-square w-full overflow-hidden">
+      {/* <div className="relative  aspect-square w-full overflow-hidden"> */}
+      <div className="relative  aspect-square w-lvw sm:w-64 h-64 sm:h-48 md:h-56 lg:h-64 xl:h-72">
         {product.image && (
           <Image
-            className="object-contain transition-transform duration-300 group-hover:scale-105"
+            className="object-contain transition-transform duration-300 group-hover:scale-105 pr-10"
             src={imageUrl(product.image).url()}
             alt={product.name || "Product Image"}
             fill
+            // layout="fill"
             sizes="{max-width: 768px} 100vw,{max-width: 1200px} 50vw, 33vw"
           />
         )}
