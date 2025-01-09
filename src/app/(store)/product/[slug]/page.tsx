@@ -13,7 +13,6 @@ async function ProductPage({ params }: { params: Promise<{ slug: string }> }) {
   if (!product) {
     return notFound();
   }
-console.log(product.stock)
 
   const isOutOfStock = product.stock != null && product.stock <= 0;
   const myPortableTextComponents: PortableTextComponents = {

@@ -6,7 +6,6 @@ async function CategoryPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const products = await getProductsByCategory(slug);
   const categories = await getAllCategories();
-  console.log(products)
 
   return (
     <div className="flex flex-col items-center justify-top min-h-screen bg-gray-100 p-4">

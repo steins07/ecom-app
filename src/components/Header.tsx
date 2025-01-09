@@ -9,8 +9,6 @@ import useBasketStore from "@/store/store";
 
 function Header() {
   const { user } = useUser();
-  const { items } = useBasketStore();
-  console.log(items);
   const itemCount = useBasketStore((state) => (
     state.items.reduce(
       (total, item) => total + item.quantity, 0
