@@ -134,12 +134,14 @@ export const orderType = defineType({
             currency: 'currency',
             orderId: 'orderNumber',
             email: 'email',
+            orderDate: 'orderDate',
         },
         prepare(select) {
             const orderIdSnippet = `${select.orderId.slice(0, 5)}...${select.orderId.slice(-5)}`
+            const formattedDate = new Date(select.orderDate).toLocaleDateString();
             return {
                 title: `${select.name} ${orderIdSnippet}`,
-                subtitle: `${select.amount}, ${select.currency}, ${select.email}`,
+                subtitle: `${select.amount}, ${select.currency}, ${select.email},${formattedDate}`,
                 media: BasketIcon,
             }
         }
