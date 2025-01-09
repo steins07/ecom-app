@@ -8,7 +8,7 @@ import { Loader2, ShoppingCart } from "lucide-react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
-import createCheckoutSession,{ Metadata } from "../../../../actions/createCheckoutSession";
+import {createCheckoutSession, Metadata } from "../../../../actions/createCheckoutSession";
 
 
 function BasketPage() {
