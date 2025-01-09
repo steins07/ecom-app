@@ -109,6 +109,7 @@ export type Order = {
   totalPrice?: number;
   currency?: string;
   amountDiscounted?: number;
+  orderDate?: string;
   status?: "pending" | "paid" | "shipped" | "delivered" | "cancelled";
 };
 
