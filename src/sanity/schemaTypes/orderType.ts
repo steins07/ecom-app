@@ -106,6 +106,13 @@ export const orderType = defineType({
             validation: Rule => Rule.min(0),
         }),
         defineField({
+            name: 'orderDate',
+            title: 'Order Date',
+            type: 'datetime',
+            validation: Rule => Rule.required(),
+            readOnly: true,
+        }),
+        defineField({
             name: 'status',
             title: 'Order Status',
             type: 'string',
