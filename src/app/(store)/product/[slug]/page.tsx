@@ -7,12 +7,18 @@ import { PortableText, PortableTextComponents } from "next-sanity";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 
+export const dynamic = "force-static";
+export const revalidate = 36000;
+
 async function ProductPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const product = await getProductBySlug(slug);
   if (!product) {
     return notFound();
   }
+  console.log(
+    crypto.randomUUID().slice(0, 5)+ ` >>> Rendered the product page cache for ${slug}`
+  );
 
   const isOutOfStock = product.stock != null && product.stock <= 0;
   const myPortableTextComponents: PortableTextComponents = {
