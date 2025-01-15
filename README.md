@@ -33,8 +33,8 @@ Check out the live application here: [Secret Message](https://secretmessage-sigm
 3.  Set up environment variables:
     *   Create a `.env.local` file in the root of your project and add the following:
 
-
-### Next.js Public Environment Variables
+```bash
+Next.js Public Environment Variables
 - `NEXT_PUBLIC_SANITY_DATASET="production"`
 - `NEXT_PUBLIC_SANITY_PROJECT_ID="vspn9fl9"`
 - `NEXT_PUBLIC_BASE_URL="http://localhost:3000"`
@@ -52,6 +52,7 @@ Check out the live application here: [Secret Message](https://secretmessage-sigm
 ### Stripe Configuration
 - `STRIPE_SECRET_KEY="<your_stripe_secret_key>"`
 - `STRIPE_WEBHOOK_SECRET="<your_stripe_webhook_secret>"`
+```
 
 4.  Start the development server:
 
