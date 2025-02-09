@@ -1,3 +1,4 @@
+
 import { CUPON_CODES } from "@/sanity/lib/sales/cuponCodes";
 import { getActiveSaleByCuponCode } from "@/sanity/lib/sales/getActiveSaleByCuponCode";
 
